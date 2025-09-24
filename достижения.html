@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список Ваших достижений</title>
+
+    <!-- кнопки дизайн-->
+
+    <style>
+    body {
+            height: 100vh;
+            width: 100vw;
+            background-image: url('ajy2.png');
+            background-size: cover;
+            background-position: center;
+        }  
+	.button {
+            border: 5px groove blueviolet;
+            background: #ccccff;
+            padding: 0.3% 10%;
+            font-size: 16pt;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+	    }
+    .button_1 {
+            border: 5px groove blueviolet;
+            background: #ccccff;
+            padding: 0.3% 40vh;
+            font-size: 16pt;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+	    }
+    .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 10%;
+            margin-bottom: 5%;
+        }
+     .content {
+            background-color: #ccccff;
+            padding: 5%;
+            border-radius: 5px;
+            min-height: 300px;
+            display: flex;
+            align-items: left;
+            justify-content: left;
+            text-align: left;
+            font-size: 18 bpx;
+            color: black;
+        }
+    .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    .hidden {
+            display: none;
+        }
+        
+    .active {
+            background-color: #6A5ACD;
+        }
+    .back-button {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            background: white;
+            color: black;
+            border: 2px solid #ccccff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- заголовок-->
+        <h1 style="text-align: center;">Список Ваших достижений</h1>
+        <!-- задаем 3 главных кнопки-->
+        <div class="buttons-container"> 
+                <div class="button" data-target="content1">Учёба</div>
+                <div class="button" data-target="content2">Внеурочная деятельность</div>
+                <div class="button" data-target="content3">Прочее</div>
+        </div>
+        <!-- окошки которые из них вылазят-->
+        <div class="content hidden" id="content1">
+                <p style="font-family: 'Arial'; font-size: 20px;">Мат. анализ:<br>
+                        1. поянть лекцию<br>
+                        2. найти Арсена Фаниливича<br>
+                    Дискретная математика:<br>
+                        1. посетить пару<br>
+                        2. ответить на семинаре<br>
+                    Оновы информационных технологий:<br>
+                        1. сделать доклад вовремя<br>
+                    Физра:<br>
+                        1. сходить на пару (хотя бы раз за 4 года)<br>
+                </p>
+        </div>
+            
+        <div class="content hidden" id="content2">
+                <p style="font-family: 'Arial'; font-size: 20px;">📍<a href="https://vk.com/uunit_rb">студенческих отрядов УУНиТ </a> <br>
+                <a href="vk.com/vc_uunit">📍Волонтерский центр </a><br>
+                <a href="vk.com/womenclub_uunit">📍Женский студ. совет </a><br>
+                <a href="vk.com/uustesports">📍Сектор киберспорта</a><br>
+                <a href="vk.com/id3560391">📍UGATU RACING TEAM - студенческое конструкторское бюро </a><br>
+                <a href="https://vk.com/studbitt">📍STUDBIT - студенческий медиацентр </a><br>
+                <a href="https://vk.com/ligauunit">📍ЛИГА КВН УУНИТ </a><br>
+                <a href="https://vk.com/amaterasu_uunit">📍АНИМЕ КЛУБ «АМАТЭРАСУ»</a> <br>
+                <a href="https://vk.com/club207750350">📍КЛУБ ИЗОБРАЗИТЕЛЬНОГО ИСКУССТВА УУНиТ</a> <br>
+                <a href="https://vk.com/nk.finalround">📍Настольный клуб «Final Round»</a> <br>
+
+                
+        </div>    
+        <div class="content hidden" id="content3">
+                <p style="font-family: 'Arial'; font-size: 20px;">Спасибо что выбираете нас!</p>
+        </div>
+    </div>
+    <a href="главная.html" class="back-button">Назад</a>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.button');
+            const contents = document.querySelectorAll('.content');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                
+                    contents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    buttons.forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    document.getElementById(targetId).classList.remove('hidden');
+                    
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>
